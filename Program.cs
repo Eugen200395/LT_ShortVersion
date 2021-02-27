@@ -17,8 +17,6 @@ namespace LT_ShortVersion
                 Console.WriteLine("Приложение *Счастливый Билет*");
                 Console.WriteLine("Для запуска программы нажми '+'. Для выхода из приложения нажми '-'");
 
-
-                
                 string choice = Console.ReadLine();
                 
                     switch (choice)
@@ -45,7 +43,6 @@ namespace LT_ShortVersion
                                 {
                                     check_ticket = check_ticket.Insert(0, "0");
                                 }
-
 
                                 int[] arr = check_ticket.Select(x => int.Parse(x.ToString())).ToArray();
 
@@ -74,4 +71,3 @@ namespace LT_ShortVersion
         }
     }
 }
-
