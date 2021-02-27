@@ -17,20 +17,27 @@ namespace LT_ShortVersion
                 Console.WriteLine("Приложение *Счастливый Билет*");
                 Console.WriteLine("Для запуска программы нажми '+'. Для выхода из приложения нажми '-'");
 
+
                 string choice = Console.ReadLine();
-                {
+                
                     switch (choice)
                     {
                         case "+":
-                            {
-                                Console.WriteLine($"Введите номер вашего билета: ");
+                        {
+                            string ticket;
+                            string check_ticket;
 
-                            a: string ticket = Console.ReadLine();
-                                string check_ticket = new String(ticket.Where(x => Char.IsDigit(x)).Take(8).ToArray());
-                                if (check_ticket.Length < 3 || ticket == null)
+                            while (true)
                                 {
-                                    Console.WriteLine("Введите номер вашего билета корректно!");
-                                    goto a;
+                                    Console.WriteLine($"Введите номер вашего билета: ");
+                                    ticket = Console.ReadLine();
+                                    check_ticket = new String(ticket.Where(x => Char.IsDigit(x)).Take(8).ToArray());
+
+                                if (check_ticket.Length < 3)
+                                {
+                                    Console.WriteLine("Введите номер вашего билета корректно! \n");
+                                }
+                                else { break; };  
                                 }
 
                                 if (check_ticket.Length % 2 != 0)
@@ -38,12 +45,12 @@ namespace LT_ShortVersion
                                     check_ticket = check_ticket.Insert(0, "0");
                                 }
 
-                                int[] arr = check_ticket.Select(x => int.Parse(x.ToString())).ToArray();
-                                
 
-                                for (int i = 0; i < check_ticket.Length; i++)
+                                int[] arr = check_ticket.Select(x => int.Parse(x.ToString())).ToArray();
+
+                                for (int i = 0; i < arr.Length; i++)
                                 {
-                                    if (i < (check_ticket.Length + 1) / 2)
+                                    if (i < (arr.Length + 1) / 2)
                                     {
                                         sum_1 += arr[i];
                                     }
@@ -59,11 +66,10 @@ namespace LT_ShortVersion
                                 }
                                 break;
                             }
-
                         case "-": { start = false; Console.WriteLine("Программа завершенна"); break; }
                     }
                 }
-            }
+            
             Console.Read();
         }
     }
