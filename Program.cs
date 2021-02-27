@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace LT_ShortVersion
@@ -18,6 +18,7 @@ namespace LT_ShortVersion
                 Console.WriteLine("Для запуска программы нажми '+'. Для выхода из приложения нажми '-'");
 
 
+                
                 string choice = Console.ReadLine();
                 
                     switch (choice)
@@ -69,7 +70,6 @@ namespace LT_ShortVersion
                         case "-": { start = false; Console.WriteLine("Программа завершенна"); break; }
                     }
                 }
-            
             Console.Read();
         }
     }
